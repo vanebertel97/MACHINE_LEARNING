@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja de Vida · Angie Vanesa Guerrero Bertel</title>
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .cv-card {
+      max-width: 1100px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 30, 0.25);
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* ========== LADO IZQUIERDO ========== */
+    .sidebar {
+      background: #1a2a3a;
+      color: #eef4fa;
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .foto-perfil {
+      text-align: center;
+    }
+    .foto-perfil .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4f7a9e;
+      background: #d9e2ec;
+      box-shadow: 0 8px 14px rgba(0,0,0,0.3);
+      margin-bottom: 0.5rem;
+    }
+    .foto-perfil h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 0.5rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .foto-perfil .titulo-corto {
+      background: #2e4b62;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #dce9f5;
+      margin-top: 0.3rem;
+    }
+
+    .seccion-lateral {
+      border-top: 1px solid #3e5a70;
+      padding-top: 1.5rem;
+    }
+    .seccion-lateral:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .seccion-lateral h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: #b6cfe5;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #3e5a70;
+      padding-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .seccion-lateral h3 i {
+      font-size: 1rem;
+      width: 1.4rem;
+    }
+
+    .contacto-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+      color: #d4e2f0;
+    }
+    .contacto-item i {
+      width: 20px;
+      font-size: 1rem;
+      color: #9bbad4;
+    }
+    .contacto-item a {
+      color: #d4e2f0;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .contacto-item a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .habilidad {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.5rem;
+      margin-top: 0.2rem;
+    }
+    .habilidad span {
+      background: #2e4b62;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #e3edf7;
+      letter-spacing: 0.3px;
+      border: 1px solid #4a6a82;
+    }
+
+    .referencia-item {
+      margin-bottom: 1.2rem;
+    }
+    .referencia-item .nombre {
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    .referencia-item .cargo {
+      font-size: 0.8rem;
+      color: #bdd3e8;
+      margin: 2px 0 4px;
+    }
+    .referencia-item .tel {
+      font-size: 0.8rem;
+      color: #b0c8de;
+    }
+    .referencia-item .tel i {
+      margin-right: 6px;
+      font-size: 0.7rem;
+      color: #8bb3d1;
+    }
+
+    /* ========== LADO DERECHO ========== */
+    .main-content {
+      padding: 2rem 2.4rem;
+      background: #ffffff;
+    }
+
+    .main-content h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a2a3a;
+      letter-spacing: 0.5px;
+      border-bottom: 3px solid #d0dfec;
+      padding-bottom: 0.5rem;
+      margin-top: 1.8rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .main-content h2 i {
+      color: #2a5779;
+      font-size: 1.2rem;
+      width: 1.8rem;
+    }
+    .main-content h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .perfil-breve {
+      background: #f3f8fe;
+      padding: 1.2rem 1.5rem;
+      border-radius: 18px;
+      margin-bottom: 1.8rem;
+      border-left: 6px solid #2a5779;
+      color: #1d2f3f;
+    }
+    .perfil-breve p {
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .item-block {
+      margin-bottom: 1.6rem;
+    }
+    .item-block .cabecera {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 0.2rem;
+    }
+    .item-block .titulo-item {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #0b1c2b;
+    }
+    .item-block .subtitulo {
+      font-weight: 600;
+      color: #2a5779;
+      font-size: 0.9rem;
+    }
+    .item-block .fecha {
+      font-size: 0.8rem;
+      background: #e6eef8;
+      padding: 0.1rem 1rem;
+      border-radius: 30px;
+      color: #1f405b;
+      font-weight: 500;
+    }
+    .item-block .descripcion {
+      margin-top: 0.3rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #1f3448;
+      padding-left: 0.2rem;
+    }
+    .item-block .descripcion ul {
+      list-style: none;
+      padding-left: 0.2rem;
+    }
+    .item-block .descripcion ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .item-block .descripcion ul li::before {
+      content: "▹";
+      color: #2a5779;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .competencias-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .competencias-grid ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .competencias-grid ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.92rem;
+      color: #1f3448;
+    }
+    .competencias-grid ul li::before {
+      content: "▹";
+      color: #2a5779;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    .competencias-grid .categoria {
+      font-weight: 600;
+      color: #2a5779;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .divider-light {
+      height: 1px;
+      background: linear-gradient(to right, #d0dfec, transparent);
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .cv-card {
+        grid-template-columns: 1fr;
+        border-radius: 20px;
+      }
+      .sidebar {
+        padding: 1.8rem;
+      }
+      .foto-perfil .avatar {
+        width: 120px;
+        height: 120px;
+      }
+      .main-content {
+        padding: 1.8rem;
+      }
+      .competencias-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+    @media (max-width: 450px) {
+      .item-block .cabecera {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-card">
+    <!-- COLUMNA IZQUIERDA -->
+    <aside class="sidebar">
+      <div class="foto-perfil">
+        <!-- LÍNEA CORREGIDA: usa el nombre exacto de tu foto -->
+        <img class="avatar" src="1714282522496.jpg" alt="Foto de perfil profesional">
+        <h2>Angie Vanesa Guerrero Bertel</h2>
+        <span class="titulo-corto">Ingeniera Química · Magíster en Estadística</span>
+      </div>
+
+      <!-- CONTACTO -->
+      <div class="seccion-lateral">
+        <h3><i class="fas fa-address-card"></i> Contacto</h3>
+        <div class="contacto-item"><i class="fas fa-phone-alt"></i> +57 310 3738692</div>
+        <div class="contacto-item"><i class="fas fa-envelope"></i> <a href="mailto:guerreromulford1965@gmail.com">guerreromulford1965@gmail.com</a></div>
+        <div class="contacto-item"><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/ing-angie-v-guerrero/" target="_blank">linkedin.com/in/ing-angie-v-guerrero</a></div>
+        <div class="contacto-item"><i class="fas fa-map-marker-alt"></i> Barranquilla, Colombia</div>
+      </div>
+
+      <!-- HABILIDADES TECNOLÓGICAS -->
+      <div class="seccion-lateral">
+        <h3><i class="fas fa-laptop-code"></i> Tecnologías</h3>
+        <div class="habilidad">
+          <span>Python</span>
+          <span>R Studio</span>
+          <span>Matlab & Simulink</span>
+          <span>Microsoft Excel</span>
+          <span>Power BI</span>
+          <span>Statgraphics</span>
+        </div>
+      </div>
+
+      <!-- IDIOMAS -->
+      <div class="seccion-lateral">
+        <h3><i class="fas fa-language"></i> Idiomas</h3>
+        <div class="habilidad">
+          <span>Inglés · B1</span>
+          <span>Español · Nativo</span>
+        </div>
+      </div>
+
+      <!-- REFERENCIAS -->
+      <div class="seccion-lateral">
+        <h3><i class="fas fa-users"></i> Referencias</h3>
+        <div class="referencia-item">
+          <div class="nombre">Ángel Eduardo Tejedor González</div>
+          <div class="cargo">Ingeniero Químico & Ingeniero de Software · iOS Engineer en Mercado Libre</div>
+          <div class="tel"><i class="fas fa-phone"></i> +57 310 4436751</div>
+        </div>
+        <div class="referencia-item">
+          <div class="nombre">Ximena María Vargas</div>
+          <div class="cargo">Ingeniera Química, PhD. en Ingeniería · Docente Universidad del Atlántico</div>
+          <div class="tel"><i class="fas fa-phone"></i> +57 315 843 4024</div>
+        </div>
+        <div class="referencia-item">
+          <div class="nombre">Jorge Isaac Robinson</div>
+          <div class="cargo">Magíster en Matemáticas · Docente Universidad del Atlántico</div>
+          <div class="tel"><i class="fas fa-phone"></i> +57 314 785 7584</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- COLUMNA DERECHA -->
+    <main class="main-content">
+      <!-- PERFIL -->
+      <div class="perfil-breve">
+        <p><strong><i class="fas fa-quote-left" style="color: #2a5779; margin-right: 6px;"></i></strong> 
+          Soy Ingeniera química y magíster en estadística aplicada, con gran interés en todo lo relacionado a las matemáticas aplicadas y estadísticas. Tengo conocimientos en R Studio, Statgraphics, MATLAB y Python. Actualmente soy docente de aula en el área de matemáticas para básica secundaria y cuento con experiencia en educación superior. He laborado como docente catedrática en la Universidad del Norte en el campo de la estadística. Trabajé en mi trabajo de maestría en modelos bivariados, artículo que ha sido publicado en revista de alto prestigio. Me considero una persona comprometida, responsable de mis labores y capaz de trabajar en equipo eficientemente.
+        </p>
+      </div>
+
+      <!-- FORMACIÓN -->
+      <h2><i class="fas fa-graduation-cap"></i> Historial Académico</h2>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Maestría en Estadística Aplicada</span>
+          <span class="fecha">2022 – 2024</span>
+        </div>
+        <div class="subtitulo">Universidad del Norte · Barranquilla (Egresada)</div>
+        <div class="descripcion">
+          <ul>
+            <li>Análisis Multivariado</li>
+            <li>Análisis de datos en R Studio & Python</li>
+            <li>Machine Learning</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Pregrado Ingeniería Química</span>
+          <span class="fecha">2015 – 2020</span>
+        </div>
+        <div class="subtitulo">Universidad del Atlántico · Barranquilla</div>
+        <div class="descripcion">
+          <ul>
+            <li>Control de calidad</li>
+            <li>Diseño de plantas y reactores</li>
+            <li>Gestión ambiental y desarrollo sostenible</li>
+            <li>Control y simulación de procesos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider-light"></div>
+
+      <!-- EXPERIENCIA -->
+      <h2><i class="fas fa-briefcase"></i> Experiencia Laboral</h2>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Docente Catedrática - Estadística</span>
+          <span class="fecha">Jul 2024 – May 2025</span>
+        </div>
+        <div class="subtitulo">Universidad del Norte · Barranquilla</div>
+        <div class="descripcion">
+          Docente de asignaturas como fundamentos de estadística y estadística descriptiva.
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Docente de Aula - Matemáticas</span>
+          <span class="fecha">May 2024 – Actualidad</span>
+        </div>
+        <div class="subtitulo">IED Evardo Turizo Palencia</div>
+        <div class="descripcion">
+          Docente de matemáticas en jornada mañana - básica secundaria.
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Analista BI</span>
+          <span class="fecha">Dic 2023 – Abr 2024</span>
+        </div>
+        <div class="subtitulo">Rafael del Castillo & CIA S.A</div>
+        <div class="descripcion">
+          Analista financiera - Identificación de cambios y proyecciones en el sector financiero de la compañía, detectando amenazas y oportunidades de inversión mediante el análisis de datos. Visualización en Power BI.
+        </div>
+      </div>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Research Assistant</span>
+          <span class="fecha">Jul 2023 – Dic 2023</span>
+        </div>
+        <div class="subtitulo">Universidad del Norte</div>
+        <div class="descripcion">
+          Asistente de investigación en proyecto estadístico - Modelo Marshall-Olkin Weibull bivariado con singularidad modificada y su aplicación en análisis de sobrevivencia.
+        </div>
+      </div>
+
+      <div class="divider-light"></div>
+
+      <!-- CURSOS -->
+      <h2><i class="fas fa-certificate"></i> Cursos de Profundización</h2>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Fundamentos en Analítica de Datos</span>
+          <span class="fecha">2022</span>
+        </div>
+        <div class="subtitulo">DS4A Correlation One</div>
+      </div>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Programación en Python</span>
+          <span class="fecha">2022</span>
+        </div>
+        <div class="subtitulo">Coursera - Universidad de los Andes</div>
+      </div>
+
+      <div class="item-block">
+        <div class="cabecera">
+          <span class="titulo-item">Neural Networks and Deep Learning</span>
+          <span class="fecha">2023</span>
+        </div>
+        <div class="subtitulo">Coursera - DeepLearning.AI</div>
+      </div>
+
+      <div class="divider-light"></div>
+
+      <!-- COMPETENCIAS -->
+      <h2><i class="fas fa-star"></i> Competencias Profesionales</h2>
+
+      <div class="competencias-grid">
+        <div>
+          <div class="categoria">Profesionales</div>
+          <ul>
+            <li>Análisis de datos</li>
+            <li>Estadística computacional</li>
+            <li>Machine Learning</li>
+            <li>Deep Learning</li>
+            <li>Pronósticos en series de tiempo</li>
+          </ul>
+        </div>
+        <div>
+          <div class="categoria">Personales</div>
+          <ul>
+            <li>Comunicación</li>
+            <li>Trabajo en equipo</li>
+            <li>Liderazgo</li>
+            <li>Planeación</li>
+            <li>Resolución de problemas</li>
+            <li>Capacidad de aprendizaje</li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>
